@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <style type="text/css">
+	td{
+	font-size:25px;
+	color:red;
+	padding:5px 10px;
+	border:1px solid blue ;
+	}
+  </style>
+  <title></title>
+ </head>
+ <body>
+  <h1>九九乘法表</h1>
+  <div id="box">
+		</div>
+  <script type="text/javascript">
+  //先获取容器box，在box进行表格的添加
+			var box = document.getElementById("box")
+			//先定义一个大容器table，用来存放下面的tr和td
+			var table = document.createElement("table")
+			for (var a = 0; a < 10; a++) {
+				var tr = document.createElement("tr"); //table建立之后，创建tr标签，
+				for (var b = 0; b < a; b++) { //针对每个tr(行) 进行td（列）插入
+					var td = document.createElement("td") //创建td标签
+					tr.appendChild(td); //丰富tr标签
+				}
+				table.appendChild(tr); //将tr插入table内，丰富table内容
+			}
+			box.appendChild(table) //将tr插入table内，完成table创建
+
+  <!--
+	console.log("九九乘法表");
+	var element = document.querySelectorAll('td');
+    for(var i=1;i<10;i++) {
+	   for(var j=1;j<=i;j++){
+	   var s = j + "×" + i + "=" + i*j + " ";
+       element[(i-1)*i*0.5+(j-1)].textContent = s ;
+	  }
+	}
+   -->
+  </script>
+ </body>
