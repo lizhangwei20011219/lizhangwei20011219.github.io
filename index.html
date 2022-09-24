@@ -1,28 +1,81 @@
+
 <!doctype html>
 <html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <title>shuoye</title>
-   <style type="text/css">
-	body{
-	 line-height:400px;
-	 text-align:center;
-	 font-size:30px;
-	 color:rgb(21,23,25);
-	 background-color:rgb(8,1,242);
-	 font-family:华文琥珀;
+<head>
+	<meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="Yiity">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="主页">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主页</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: "楷体";
+        }
+        header{
+            background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("https://images.pexels.com/photos/229014/pexels-photo-229014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+            height: 100vh;	/*使图片占满屏幕*/
+            background-size: cover;
+            background-position: center;
+        }
+    
+        ul{
+            text-align:center;
+            list-style-type: none;/*去除li标签默认属性的标记*/
+            margin: 0px;
+        }
+        ul li{
+            display: inline-block;/*在元素之后不添加换行符，因此该元素可以位于其他元素旁边，实现水平显示列表项*/
+        }
+    
+        ul li a{
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 20px;
+            border: 1px solid transparent;/*使边框颜色透明*/
+            transition: .6s ease;/*设置过度效果*/
+            border-radius: 20px;/*设置圆角*/
+        }
+		ul li a:hover{		/*鼠标悬停在li的a上时的样式*/
+            background-color: #1a0;
+            color: #021;
+        }
+
+        ul li.active a{
+            background-color: #fff;
+            color: #000;
+        }	
+
+		/*设置标题文字位置及样式*/
+        	h1{
+			font-size:55px;
+			position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+			font-family:华文琥珀;
 	}
-  </style>
+    </style>
 
- </head>
 
- <body>
-  <h1>
-  我的JavaScript的学习之路
-  </h1>
-  <ul>
-  <li><a href="https://lizhangwei20011219.github.io/第一次作业--循环.html">第一次作业--循环</a></li>
-   <li><a href="https://lizhangwei20011219.github.io/第二次作业--九九乘法表.html">第二次作业--九九乘法表</a></li>
-  </ul>
- </body>
+</head>
+<body>
+    <header>
+        <div class="main">
+            <ul>
+                <li class="active"><a href="#">首页</a></li>
+                <li><a href="https://lizhangwei20011219.github.io/简介.html" target="_blank">简介</a></li>
+                <li><a href="https://lizhangwei20011219.github.io/作业.html" target="_blank">作业</a></li>
+                <li><a href="https://lizhangwei20011219.github.io/个人.html" target="_blank">个人</a></li>
+                
+            </ul>
+        </div>
+        <div class="title">
+            <h1> 我的JavaScript的学习之路</h1>
+        </div>
+    </header>
+</body>
 </html>
