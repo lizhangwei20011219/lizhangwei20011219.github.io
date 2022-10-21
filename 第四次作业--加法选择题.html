@@ -21,7 +21,20 @@
 		font-size:30px;
 		margin:20px;
 		text-align:center;
+		border-radius: 20px;
+		border: 1px solid #ff0;
 	}
+	input:hover{
+		background-color: #ccffff;
+		color: #000;
+	}
+	input#reload{
+		font-size:25px;
+		width:80px;
+		height:40px;
+		text-align:center;
+		color:#00f;
+    }
   </style>
  </head>
  <body>
@@ -38,7 +51,9 @@
 		C. <input type = "button" id = "answerC" value = "">
 		D. <input type = "button" id = "answerD" value = "">
 	</div>
-
+	<div>
+		<input id = 'reload' value = '下一题'>
+	</div>
 	<script type="text/javascript">
 
 		/*生成两个随机数并放入题目中*/
@@ -67,7 +82,8 @@
 				}
 			}
 		}			
-		
+		var reloaddom = document.querySelector("input#reload");
+
 		/*使正确答案在ABCD中随机显示*/
 		var ram = Math.floor ( 3 * Math.random () );
 		if (ram == 0){
@@ -78,7 +94,10 @@
 			answerDoms[2].value = opNum1 + opNum2 ;
 		}else if(ram == 3){
 			answerDoms[3].value = opNum1 + opNum2 ;
-		}	
+		}
+		reloaddom.onclick = function(){
+			window.location.reload();
+		}
 	</script>
  </body>
 </html>
