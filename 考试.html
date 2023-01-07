@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="Yiity">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: "楷体";
+        }
+        header{
+            background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("https://images.pexels.com/photos/792199/pexels-photo-792199.jpeg?auto=compress&cs=tinysrgb&w=600");
+            height: 100vh;	/*使图片占满屏幕*/
+            background-size: cover;
+            background-position: center;
+        }
+    
+        ul{
+            text-align:center;
+            list-style-type: upper-roman;/*去除li标签默认属性的标记*/
+            margin: 15px;
+        }
+        ul li{
+            display: inline-block;/*在元素之后不添加换行符，因此该元素可以位于其他元素旁边，实现水平显示列表项*/
+        }
+    
+        ul li a{
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 20px;
+            border: 1px solid transparent;/*使边框颜色透明*/
+            transition: .6s ease;
+            border-radius: 20px;
+        }
+			ul li a:hover{		/*鼠标悬停在li的a上时的样式*/
+            background-color: #1a0;
+            color: #021;
+        }
+
+        ul li.active a{
+            background-color: #fff;
+            color: #000;
+        }	
+
+		/*设置目录文字位置及样式*/
+        .catalog{
+            position: absolute;
+             top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+        .catalog p{
+            color: #0f0;
+            font-size: 40px;
+            font-family: Century Gothic;
+        }
+        p a{
+            text-decoration: none;
+            color: #fa0;
+            padding: 5px 20px;
+            border: 1px solid transparent;/*使边框颜色透明*/
+            transition: .6s ease;
+            border-radius: 20px;
+    </style>
+
+
+</head>
+<body>
+    <header>
+        <div class="main">
+            <ul>
+                <li><a href="https://lizhangwei20011219.github.io/index.html" target="_blank">首页</a></li>
+                <li><a href="https://lizhangwei20011219.github.io/简介.html"target="_blank">简介</a></li>
+                <li class="active"><a href="#">作业</a></li>
+                <li><a href="https://lizhangwei20011219.github.io/个人.html"target="_blank">个人</a></li>
+                
+            </ul>
+        </div>
+        <div class="catalog">
+            <p><a href="https://lizhangwei20011219.github.io/第一次作业--循环.html">第一次作业--循环</a></p>
+			<p><a href="https://lizhangwei20011219.github.io/第二次作业--九九乘法表.html">第二次作业--九九乘法表</a></p>
+			<p><a href="https://lizhangwei20011219.github.io/第三次作业--简单加减法计算器.html">第三次作业--简单加减法计算器</a></p>
+			<p><a href="https://lizhangwei20011219.github.io/第四次作业--加法选择题.html">第四次作业--加法选择题</a></p>
+        </div>
+    </header>
+</body>
+</html>
