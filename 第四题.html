@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    </title>
+    <style type="text/css">
+        div{
+            margin:1em;
+            padding:1em;
+            width: 100px;
+            height: 100px;
+            border:2px solid lightpink;
+            display:inline-block;
+            opacity:0.8;
+            background-color:grey;
+            border-radius: 70px;
+            transition:all 1s;
+        }
+        div p{
+            text-align:center;
+            display:inline;
+            font-size:1em;
+            color:cyan;
+            opacity:1;
+        }
+        body{
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+    var poem=[];
+    var s='绝代有佳人，幽居在空谷。自云良家子，零落依草木。'  ;
+    for(var i=0;i<100;i++){
+        var div= document.createElement('div') ;
+        poem.push(div);
+        var p = document.createElement('p') ;
+        p.textContent=s;
+        div.appendChild(p) ;
+        document.body.appendChild(div);
+    }
+    document.body.onclick= function(){
+        for(let div of poem){
+            div.style.position= 'absolute';
+            var bodyWidth = window.innerWidth ;
+            var bodyHeight = window.innerHeight ;
+            document.body.style.width = bodyWidth + 'px';
+            document.body.style.height = bodyHeight + 'px' ;
+            var x = Math.floor(Math.random() * bodyWidth ) ;
+            var y = Math.floor( Math.random() * bodyHeight );
+            div.style.left = x + 'px' ;
+            div.style.top = y + 'px' ;
+        }
+    };
+    document.body.ondblclick=function (){
+        for(let div of poem) {
+            div.style.position = '';
+        }
+    }
+        for(let div of poem){
+            div.onmousemove = div.ontouchmove = function(){
+            var bodyWidth = window.innerWidth ;
+            var bodyHeight = window.innerHeight ;
+            document.body.style.width = bodyWidth + 'px';
+            document.body.style.height = bodyHeight + 'px' ;
+            var x = Math.floor(Math.random() * bodyWidth ) ;
+            var y = Math.floor( Math.random() * bodyHeight );
+            div.style.left = x + 'px' ;
+            div.style.top = y + 'px' ;
+        }
+    };
+</script>
+
+</body>
+</html>
