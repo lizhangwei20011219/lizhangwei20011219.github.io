@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+    </title>
+    <style type="text/css">
+        div{
+            margin:1em;
+            padding:1em;
+            width: 100px;
+            height: 100px;
+            border:2px solid lightpink;
+            display:inline-block;
+            opacity:0.8;
+            background-color:grey;
+        }
+        div p{
+            text-align:center;
+            display:inline;
+            font-size:1em;
+            color:cyan;
+            opacity:1;
+        }
+        body{
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+    var s='绝代有佳人，幽居在空谷。自云良家子，零落依草木。'  ;
+    for(var i=0;i<100;i++){
+        var div= document.createElement('div') ;
+        var p = document.createElement('p') ;
+        p.textContent=s;
+        div.appendChild(p) ;
+        document.body.appendChild(div);
+    }
+</script>
+</body>
+</html>
