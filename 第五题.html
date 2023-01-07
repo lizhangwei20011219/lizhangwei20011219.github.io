@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> final exam</title>
+    <style type="text/css">
+        body{
+            cursor: crosshair;
+        }
+        div{
+            background-color:wheat;
+            box-sizing: border-box ;
+            border:1px solid fuchsia;
+            border-radius: 20% ;
+            margin: 0 ;
+            padding: 0 ;
+            position: absolute ;
+            transition: all 0.5s ;
+        }
+        div.bd{
+            background-color:lightblue;
+            border:0px solid ;
+            border-radius: 0% ;
+        }
+        div p{ margin: auto;
+            padding: 10%;
+            color:deepskyblue;
+            text-align:center;
+            text-shadow:1px 1px lavender;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+    const NUMS = 8 ;
+    var tsBalls = [] ;
+    var sn = 0 ;
+    const S = ['相见时难别亦难，东风无力百花残。春蚕到死丝方尽，蜡炬成灰泪始干。晓镜但愁云鬓改，夜吟应觉月光寒。蓬山此去无多路，青鸟殷勤为探看。','锦瑟无端五十弦，一弦一柱思华年。庄生晓梦迷蝴蝶，望帝春心托杜鹃。沧海月明珠有泪，蓝田日暖玉生烟。此情可待成追忆，只是当时已惘然。','红军不怕远征难，万水千山只等闲。五岭逶迤腾细浪，乌蒙磅礴走泥丸。金沙水拍云崖暖，大渡桥横铁索寒。更喜岷山千里雪，三军过后尽开颜。','马嵬云烟幻亦飘，当年红粉醉春桃。倾国之色一朝灭，绝世爱恋自此消。遥想当年浓情处，不料安史败佳谣。俗脂粗粉遮不住，美人初露把魂销。二八芳龄正青春，玉树临风郎亦妙。奈何王道不容情，只得金屋深藏娇。佳丽三千冷后宫，得此娇儿不早朝。醉卧玉帐贪杯盏，夜深依旧纵逍遥。华清玉池浴华清，霓裳羽衣舞霓裳。君王得此伴身边，不恋凡尘不思朝。艳红丹荔佳人喜，唐王不惜亲令取。偏偏红荔岭南生，硕大皇城不得闻。快马飞鞭烟滚尘，无人敢言离支迟。关外野火激战烈，何不戎装纵马前。金销帐内仍尽乐，不闻四面皆楚歌。仓惶西入古蜀地，无奈六军变颜色。谄媚小人误国贼，祸国殃民罪不饶。君王贪色致此败，美人原是英雄墓。马嵬坡前意难释，心绞掩面肠断痛。君王无奈泪不已，三尺白绫了此情。郎才女貌不得配，比翼鸟儿难成对。春风再度华清宫，玄宗心凉竟以空。相约来年七夕月，携手共度游天宫。此情天下无以双，此恨古今难再往。'] ;
+    document.body.onmousemove = document.body.ontouchmove = function(){
+        for(let ball of tsBalls){
+            ball.setPositionDiv();
+        }
+    }
+    document.body.onclick = function(){
+        for(let ball of tsBalls){
+            ball.randPositionDiv() ;
+        }
+    };
+    document.body.ondblclick = function(){
+        console.log('double click');
+        for(let ball of tsBalls){
+            this.removeChild(ball.dom) ;
+        }
+        tsBalls = [] ;
+        sn === S.length -1 ? sn = 0 : sn++ ;
+        for(var i=0 ;i < S[sn].length ; i++){
+            var x0 = i % NUMS ;
+            var y0 = Math.floor ( i / NUMS ) ;
+            var ballObj = new Ball( x0 , y0 ) ;
+            ballObj.createDivDom(S[sn][i]) ;
+            ballObj.randPositionDiv() ;
+            tsBalls.push(ballObj) ;
+        }
+    };
+    var bodyWidth = window.innerWidth ;
+    var bodyHeight = window.innerHeight ;
+    document.body.style.width = bodyWidth + 'px';
+    document.body.style.height = bodyHeight + 'px' ;
+    var r = bodyWidth > bodyHeight ? bodyHeight / (NUMS*3/2) : bodyWidth / (NUMS*3/2) ;
+    for(var i=0 ;i < S[sn].length ; i++){
+        var x0 = i % NUMS ;
+        var y0 = Math.floor ( i / NUMS ) ;
+        var ballObj = new Ball( x0 , y0 ) ;
+        ballObj.createDivDom(S[sn][i]) ;
+        ballObj.randPositionDiv() ;
+        tsBalls.push(ballObj) ;
+    }
+    function Ball(x0 , y0){
+        this.x0 = x0 ;
+        this.y0 = y0 ;
+        this.dom = null ;
+        this.createDivDom = function(s){
+            var divDom = document.createElement('div') ;
+            var pDom = document.createElement('p') ;
+            pDom.textContent = s ;
+            pDom.style.fontSize = r/2 + 'px' ;
+            divDom.style.width = divDom.style.height = r + 'px' ;
+            if(this.x0 === 7 || this.x0 === 15 ){
+                divDom.className = 'bd' ;
+            }
+            divDom.appendChild(pDom) ;
+            document.body.appendChild(divDom) ;
+            this.dom = divDom ;
+        };
+        this.randPositionDiv = function(){
+            var x = Math.floor(Math.random() * bodyWidth ) ;
+            if(x >= bodyWidth - r){ x = bodyWidth - r ;
+            }
+            var y = Math.floor( Math.random() * bodyHeight );
+            if(y >= bodyHeight - r){ y = bodyHeight - r ;
+            }
+            this.dom.style.left = x + 'px' ;
+            this.dom.style.top = y + 'px' ;
+        } ;
+        this.setPositionDiv = function(){
+            var x = parseInt(this.x0) * r * 1.5 ;
+            var y = parseInt(this.y0) * r * 1.5 ;
+            this.dom.style.left = x + r + 'px' ;
+            this.dom.style.top = y + r + 'px' ;
+        } ;
+    };
+</script>
+</body>
+</html>
